@@ -1,0 +1,14 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<!-- Setter Injection -->
+	<bean id="outputHelper" class="com.skumar.spring.core.helper.OutputHelper">
+		<property name="outputGenerator" ref="jsonOutputGenerator" />
+	</bean>
+	
+	<bean id="csvOutputGenerator" class="com.skumar.spring.core.bean.impl.CsvOutputGenerator" />
+	<bean id="jsonOutputGenerator" class="com.skumar.spring.core.bean.impl.JsonOutputGenerator" />
+	
+</beans>
