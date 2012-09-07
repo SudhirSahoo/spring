@@ -31,5 +31,8 @@
 		<module>HelloWorldAnnotationConfig</module>
 		<module>HelloWorld</module>
 		<module>DISetterInjection</module>
+		<module>DIConstructorInjection</module>
+		<module>InnerBean</module>
+		<module>BeanScope</module>
 	</modules>
 </project>

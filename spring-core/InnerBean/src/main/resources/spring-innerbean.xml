@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<!-- Inner Bean -->
+	<bean id="customer" class="com.skumar.spring.core.bean.Customer">
+		<property name="person">
+			<bean class="com.skumar.spring.core.bean.Person">
+				<property name="name" value="Sudhir" />
+				<property name="address" value="Mumbai" />
+				<property name="age" value="28" />
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

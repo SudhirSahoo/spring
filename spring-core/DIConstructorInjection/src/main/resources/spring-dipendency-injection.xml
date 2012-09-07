@@ -1,0 +1,34 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<!-- Constructor Injection -->
+	<bean id="outputHelper" class="com.skumar.spring.core.helper.OutputHelper">
+		 <constructor-arg>
+			<ref bean="csvOutputGenerator" />
+		</constructor-arg>
+		<!-- 
+		<property name="message" value="Hello"></property>
+		 -->
+		 
+		<!--
+		<constructor-arg type="java.lang.String">
+			<value>SKUMAR</value>
+		</constructor-arg>
+ 
+		<constructor-arg type="java.lang.String">
+			<value>188</value>
+		</constructor-arg>
+ 
+		<constructor-arg type="int">
+			<value>28</value>
+		</constructor-arg>
+		-->
+		
+	</bean>
+	
+	<bean id="csvOutputGenerator" class="com.skumar.spring.core.bean.impl.CsvOutputGenerator" />
+	<bean id="jsonOutputGenerator" class="com.skumar.spring.core.bean.impl.JsonOutputGenerator" />
+	
+</beans>
