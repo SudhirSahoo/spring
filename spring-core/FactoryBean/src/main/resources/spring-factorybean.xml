@@ -1,0 +1,115 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean id="customer" class="com.skumar.spring.core.bean.Customer">
+		<!-- java.util.List -->
+		<!-- 
+			We can write like util:list as written below. For this we MUST have to define the util schema
+			Schema:
+			.......
+			xmlns:util="http://www.springframework.org/schema/util"
+			http://www.springframework.org/schema/util
+			http://www.springframework.org/schema/util/spring-util-2.5.xsd
+			
+			Code:
+			.....
+			<util:list list-class="java.util.ArrayList">
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+			</util:list>
+		 -->
+		<property name="lists">
+			<bean class="org.springframework.beans.factory.config.ListFactoryBean">
+				<property name="targetListClass">
+					<value>java.util.ArrayList</value>
+				</property>
+				<property name="sourceList">
+					<list>
+						<value>1</value>
+						<value>2</value>
+						<value>3</value>
+					</list>
+				</property>
+			</bean>
+		</property>
+		
+		
+		<!--START: java.util.HashSet -->
+		<property name="sets">
+		<!-- 
+			We can write like util:set in place of "<bean class = ...SetFactoryBean>" as written below. For this we MUST have to define the util schema
+			Schema:
+			.......
+			xmlns:util="http://www.springframework.org/schema/util"
+			http://www.springframework.org/schema/util
+			http://www.springframework.org/schema/util/spring-util-2.5.xsd
+			
+			Code:
+			.....
+			<util:set set-class="java.util.HashSet">
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+			</util:set>
+		 -->
+			 <bean class="org.springframework.beans.factory.config.SetFactoryBean">
+				<property name="targetSetClass">
+					<value>java.util.HashSet</value>
+				</property>
+				<property name="sourceSet">
+					<list>
+						<value>1</value>
+						<value>2</value>
+						<value>3</value>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<!--END: java.util.HashSet -->
+			
+			
+		<!--START: java.util.HashMap -->
+		<!-- 
+		<property name="maps">
+			<bean class="org.springframework.beans.factory.config.MapFactoryBean">
+				<property name="targetMapClass">
+					<value>java.util.HashMap</value>
+				</property>
+				<property name="sourceMap">
+					<map>
+						<entry key="Key1" value="1" />
+						<entry key="Key2" value="2" />
+						<entry key="Key3" value="3" />
+					</map>
+				</property>
+			</bean>
+		</property>
+		 -->
+		<!-- 
+			We can write like util:set in place of "<bean class = ...SetFactoryBean>" as written below. For this we MUST have to define the util schema
+			Schema:
+			.......
+			xmlns:util="http://www.springframework.org/schema/util"
+			http://www.springframework.org/schema/util
+			http://www.springframework.org/schema/util/spring-util-2.5.xsd
+			
+			Code:
+			.....
+			<util:map map-class="java.util.HashMap">
+				<entry key="Key1" value="1" />
+				<entry key="Key2" value="2" />
+				<entry key="Key3" value="3" />
+			</util:map>
+		 -->
+		
+		<!--END: java.util.HashMap -->
+		
+		
+	</bean>
+	
+</beans>
+
+

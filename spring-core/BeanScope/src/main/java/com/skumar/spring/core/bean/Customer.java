@@ -5,7 +5,7 @@ public class Customer
 	private String message;
  
 	public Customer() {
-		
+
 	}
 
 	public String getMessage() {
@@ -15,5 +15,5 @@ public class Customer
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+
 }

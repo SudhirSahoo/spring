@@ -34,5 +34,8 @@
 		<module>DIConstructorInjection</module>
 		<module>InnerBean</module>
 		<module>BeanScope</module>
+		<module>Collections</module>
+		<module>FactoryBean</module>
+		<module>InjectDate</module>
 	</modules>
 </project>
