@@ -1,20 +1,19 @@
 package com.skumar.spring.mvc.controller;
 
-import org.springframework.web.servlet.mvc.Controller;
-import org.springframework.web.servlet.ModelAndView;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.io.IOException;
-import java.util.Map;
-import java.util.HashMap;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
 
-import springapp.service.ProductManager;
+import com.skumar.spring.mvc.service.ProductManager;
 
 public class InventoryController implements Controller {
 
