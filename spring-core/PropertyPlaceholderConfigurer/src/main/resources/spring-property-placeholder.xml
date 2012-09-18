@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+		 <property name="locations"> 
+			<list>
+				<value>classpath:spring-default.properties</value>
+ 				<value>classpath:spring-override.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+
+	<bean id="springProp" class="com.skumar.spring.core.service.impl.SpringPropImpl">
+		<property name="userName" value="${username}" />
+		<property name="password" value="${password}" />
+	</bean>
+	
+</beans>
+
+

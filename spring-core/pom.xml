@@ -37,5 +37,8 @@
 		<module>Collections</module>
 		<module>FactoryBean</module>
 		<module>InjectDate</module>
+		<module>PropertyPlaceholderConfigurer</module>
+		<module>PropertyOverrideConfigurer</module>
+		<module>BeanConfigurationInheritance</module>
 	</modules>
 </project>

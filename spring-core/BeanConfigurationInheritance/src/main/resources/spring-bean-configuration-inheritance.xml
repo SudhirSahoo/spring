@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+
+	<bean id="deparment" class="com.skumar.spring.core.bean.Department">
+		<property name="location" value="Mumbai" />
+		<property name="principal" value="Dr. APJ Abudal Kalam" />
+		<property name="totalStrength" value="999" />
+	</bean>
+	
+		<bean id="compDeparment" class="com.skumar.spring.core.bean.ComputerDepartment" parent="deparment">
+		<property name="id" value="DEPT_001" />
+		<property name="name" value="COMPUTER DEPARTMENT" />
+		<property name="location" value="3rd Bulding" />
+		<property name="branchStrength" value="101" />
+	</bean>
+	
+</beans>
