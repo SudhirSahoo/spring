@@ -40,5 +40,8 @@
 		<module>PropertyPlaceholderConfigurer</module>
 		<module>PropertyOverrideConfigurer</module>
 		<module>BeanConfigurationInheritance</module>
+		<module>BeanLifeCyclePostConstructAnnotation</module>
+		<module>BeanLifeCycleInitMethod</module>
+		<module>BeanLifeCycleInitializationBean</module>
 	</modules>
 </project>
