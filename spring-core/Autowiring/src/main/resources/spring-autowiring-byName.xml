@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<!-- 
+	Normally, you wire the bean explicitly, via ref attribute like this :
+	<bean id="customer" class="com.skumar.spring.core.bean.Customer" >
+		<property name="address" ref="address" />
+	</bean>
+	-->
+	
+	<bean id="customer" class="com.skumar.spring.core.bean.Customer" autowire="byName" />
+ 
+ 
+	<bean id="address" class="com.skumar.spring.core.bean.Address" >
+		<property name="fullAddress" value="Block A 888, CA" />
+	</bean>
+
+	<!-- START: byType -->
+	<bean id="customerByType" class="com.skumar.spring.core.bean.CustomerByType" autowire="byType" />
+	<!-- Try by adding the below Code </Try> -->
+	<!-- 
+	<bean id="addressByType" class="com.skumar.spring.core.bean.Address" >
+		<property name="fullAddress" value="Block A 888, CA" />
+	</bean>
+ 	-->
+
+	<!-- START: constructor -->
+	<bean id="customerConstructor" class="com.skumar.spring.core.bean.CustomerConstructor" autowire="constructor" />
+	<!-- 
+	Normally, you wire the bean explicitly, via ref attribute like this :
+	<bean id="developer" class="com.skumar.spring.core.bean.CustomerConstructor">
+		<constructor-arg>
+			<ref bean="address" />
+		</constructor-arg>
+	</bean>
+	-->
+	
+	
+	<!-- START: AutoDetect -->
+	<bean id="customerAutoDetect" class="com.skumar.spring.core.bean.CustomerAutoDetect" autowire="autodetect" />
+	
+	
+</beans>

@@ -44,5 +44,6 @@
 		<module>BeanLifeCycleInitMethod</module>
 		<module>BeanLifeCycleInitializationBean</module>
 		<module>ExpressionLanguage</module>
+		<module>Autowiring</module>
 	</modules>
 </project>
