@@ -1,0 +1,52 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="customer" class="com.skumar.spring.core.bean.Customer">
+		<property name="name" value="SKumar" />
+		<property name="url" value="http://www.google.com" />
+	</bean>
+
+	<bean id="hijackAroundMethodBean" class="com.skumar.spring.core.aop.HijackAroundMethod" />
+
+	<bean id="customerProxyAroundnameMatch" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="customer" />
+		<property name="interceptorNames">
+			<list>
+				<value>customerAdvisorNameMatch</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="customerPointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+		<property name="mappedName" value="printName" />
+	</bean>
+
+	<bean id="customerAdvisorNameMatch" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="pointcut" ref="customerPointcut" />
+		<property name="advice" ref="hijackAroundMethodBean" />
+	</bean>
+
+
+	<bean id="customerProxyAroundRegEx" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="customer" />
+		<property name="interceptorNames">
+			<list>
+				<value>customerAdvisorRegEx</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="customerAdvisorRegEx" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="patterns">
+			<list>
+				<value>.*URL.*</value>
+			</list>
+		</property>
+		<property name="advice" ref="hijackAroundMethodBean" />
+	</bean>
+
+
+
+</beans>

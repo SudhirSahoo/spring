@@ -45,5 +45,11 @@
 		<module>BeanLifeCycleInitializationBean</module>
 		<module>ExpressionLanguage</module>
 		<module>Autowiring</module>
+		<module>AOPAdvice</module>
+		<module>AOPPointcut</module>
+		<module>AOPAutoProxy</module>
+		<module>AOPAspectJAnnotation</module>
+		<module>AOPAspectJXML</module>
+		<module>ObjectXMLMapping</module>
 	</modules>
 </project>

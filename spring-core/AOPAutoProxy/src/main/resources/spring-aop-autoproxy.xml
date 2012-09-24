@@ -1,0 +1,50 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="customer" class="com.skumar.spring.core.bean.Customer">
+		<property name="name" value="SKumar" />
+		<property name="url" value="http://www.google.com" />
+	</bean>
+
+	<bean id="customerService" class="com.skumar.spring.core.bean.CustomerService">
+		<property name="name" value="SKumar" />
+		<property name="url" value="http://www.google.com" />
+	</bean>
+
+	<bean id="itemService" class="com.skumar.spring.core.bean.ItemService">
+		<property name="name" value="iPhone" />
+		<property name="url" value="http://www.apple.com" />
+	</bean>
+
+	<bean id="hijackAroundMethodBeanAdvice" class="com.skumar.spring.core.aop.HijackAroundMethod" />
+
+	<bean id="customerServiceAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="pointcut" ref="customerServicePointcut" />
+		<property name="advice" ref="hijackAroundMethodBeanAdvice" />
+	</bean>
+
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>*Service</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>customerServiceAdvisor</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="customerServicePointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+		<property name="mappedName" value="printName" />
+	</bean>
+
+
+
+	
+
+</beans>

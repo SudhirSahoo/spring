@@ -1,0 +1,62 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	
+	<bean id="customer" class="com.skumar.spring.core.bean.Customer">
+		<property name="name" value="SKumar" />
+		<property name="url" value="http://www.google.com" />
+	</bean>
+	
+	<bean id="hijackBeforeMethodBean" class="com.skumar.spring.core.aop.HijackBeforeMethod" />
+	
+	<bean id="customerProxyBefore" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="customer"/>
+		<property name="interceptorNames">
+			<list>
+				<value>hijackBeforeMethodBean</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	<bean id="hijackAfterMethodBean" class="com.skumar.spring.core.aop.HijackAfterMethod" />
+	
+	<bean id="customerProxyAfter" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="customer" />
+		<property name="interceptorNames">
+			<list>
+				<value>hijackAfterMethodBean</value>
+			</list>
+		</property>
+	</bean>
+
+
+
+	<bean id="hijackThrowExceptionBean" class="com.skumar.spring.core.aop.HijackThrowException" />
+	
+	<bean id="customerProxyThrowException" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="customer" />
+		<property name="interceptorNames">
+			<list>
+				<value>hijackThrowExceptionBean</value>
+			</list>
+		</property>
+	</bean>
+
+
+
+	<bean id="hijackAroundMethodBean" class="com.skumar.spring.core.aop.HijackAroundMethod" />
+	
+	<bean id="customerProxyAround" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="customer" />
+		<property name="interceptorNames">
+			<list>
+				<value>hijackAroundMethodBean</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>
