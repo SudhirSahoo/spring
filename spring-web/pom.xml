@@ -57,5 +57,6 @@
 	<modules>
 		<module>HelloWorldMVC</module>
 		<module>SimpleMVCWithBusinesslogic</module>
+		<module>TMS</module>
 	</modules>
 </project>
