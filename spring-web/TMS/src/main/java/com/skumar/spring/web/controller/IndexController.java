@@ -12,6 +12,6 @@ public class IndexController {
 	public String indexHandler() {
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		
-		return "index";
+		return "indexPage-tiles";
 	}
 }
