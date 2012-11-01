@@ -17,9 +17,15 @@ html, body {
 	background-image:url('/TMS/img/BannerBg.gif');
 	width: 100%;
 	height: 100px;
-	overflow: hidden;
+	
 }
 
+body {
+    color: #292929;
+    font-family: 'Segoe UI','Lucida Grande','Lucida Sans','Lucida Sans Unicode','Verdana','Arial';
+    font-size: 62.5%;
+    font-size: 62.5%;
+}
 #content-wrapper {
 	float: left;
 	width: 100%;
@@ -75,4 +81,103 @@ html, body {
 #clearfooter {
 	height: 25px;
 	clear: both;
+}
+
+#divSigninWrapper {
+    float: right;
+    position: relative;
+}
+
+.dropDownDIV {
+    background-color: White;
+    border: 1px solid #E4E4E4;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0 0 4px 0 #E4E4E4;
+    display: none;
+    margin-top: 11px;
+    padding: 24px;
+    position: absolute;
+    right: 0;
+    z-index: 300;
+}
+
+#header #ulSignin > li:last-child {
+    border-radius: 0 6px 6px 0;
+}
+
+#header #ulSignin > li a.top, #header #ulSignin > li span.emptyCart {
+    color: #333333;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px;
+    text-decoration: none
+}
+#header #ulSignin {
+    font-family: museo-1,museo-2,"Segoe UI",Arial,Helvetica,sans-serif;
+
+}
+#header #ulSignin {
+    list-style: none outside none;
+}
+
+#header #ulSignin li.active div.dropDownDIV{
+	display:block;
+	top:38px;
+	border-top:0;
+	margin-top:2px
+}
+
+#header #ulSignin li div.signinPanel {
+    width: 260px;
+}
+
+#divsigninPanelError {
+    color: #C6193D;
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+#header #ulSignin li div.signinPanel #txtsigninPanelEmail {
+    margin: 3px 0 8px;
+}
+#header #ulSignin li div.signinPanel input[type="text"], #header #ulSignin li div.signinPanel input[type="password"] {
+    border: 1px solid #E0E0E0;
+    color: #8A8A8A;
+    display: block;
+    font-family: "museo-sans-1","museo-sans-2","Segoe UI",Helvetica,sans-serif;
+    font-size: 16px;
+    margin: 3px 0 0;
+    padding: 6px;
+    width: 94%;
+}
+
+#header #ulSignin li div.signinPanel button {
+    margin: 10px 0 5px;
+    width: 100%;
+}
+.button-blue, .button-blue:link, .button-blue:visited {
+    background: url("../images/buttons/btns_new.gif") repeat-x scroll 0 0 #4CB7E1;
+    border: 1px solid #089ED6;
+    border-radius: 7px 7px 7px 7px;
+    color: #FFFFFF;
+    font-family: 'Segoe UI','Lucida Grande','Lucida Sans','Lucida Sans Unicode','Verdana','Arial';
+    font-size: 16px;
+    font-weight: bold;
+    padding: 4px 15px 5px;
+}
+
+a:link, a:visited {
+    color: #089ED6;
+    text-decoration: none;
+}
+h1, h2, h3, h4, p, ul, ol, li, form, img, fieldset {
+    font-weight: normal;
+}
+#header #ulSignin li div.signinPanel label {
+    font-size: 1.3em;
+    padding-left: 2px;
 }
