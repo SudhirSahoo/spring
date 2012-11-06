@@ -10,7 +10,29 @@ function sizeContent() {
     jQuery("#content-wrapper").css("height", newHeight);
 }
 
-
+function doAjaxLogin() {  
+	var userName = $('#userName').val();
+	var userPassword = $('#userPassword').val();
+	$.ajax({
+	    type: "POST",
+	    cache: false,
+	    url: "/TMS/authenticate/performLogin",
+	    dataType: "json",
+	    data: {"userName": userName, "userPassword": userPassword},
+	    success: function(response){ 
+	    	if(response.status){
+				window.location.href="/TMS/indexPage/landing";
+	    	} else {
+				errorInfo = response.error;
+				$('#divSigninPanelError').html("Please correct following errors: <br> " + errorInfo + "<br>");
+				$('#divSigninPanelError').show('');
+	    	}
+	    },  
+	    error: function(e){
+	    	alert('Error: ' + e);  
+	    }  
+	});  
+}  
 
 jQuery('#signInLink').live('click', function() {
 	if(jQuery('#lisigninPanel').hasClass('active')) {
@@ -20,7 +42,7 @@ jQuery('#signInLink').live('click', function() {
 	}
 });
 
-
+/*
 jQuery('#btnsigninPanelSubmit').live('click', function() {
 	alert("clicked...");
     var userId = jQuery("#txtsigninPanelEmail").val();
@@ -28,4 +50,5 @@ jQuery('#btnsigninPanelSubmit').live('click', function() {
     alert(userId);
     alert(password);
     
-});
+});*/
+
