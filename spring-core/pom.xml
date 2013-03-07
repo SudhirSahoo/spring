@@ -51,5 +51,9 @@
 		<module>AOPAspectJAnnotation</module>
 		<module>AOPAspectJXML</module>
 		<module>ObjectXMLMapping</module>
+		<module>TypeConversionSpring3</module>
+		<module>SpringJDBC</module>
+		<module>SpringHibernateTransaction01</module>
+		<module>SpringHibernateTransaction02</module>
 	</modules>
 </project>

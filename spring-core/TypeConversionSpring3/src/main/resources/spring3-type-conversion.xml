@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- default scope i.e. singleton, No need to put "scope" -->
+	<bean id="customerSSN" class="com.skumar.core.spring3.bean.CustomerSSN">
+		<property name="ssn" value="456-21-7890" />
+	</bean>
+
+	<bean id="conversionService"
+		class="org.springframework.context.support.ConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+				<bean class="com.skumar.core.spring3.bean.SSNConverter" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

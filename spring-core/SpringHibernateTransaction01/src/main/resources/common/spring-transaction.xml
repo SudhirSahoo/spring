@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+
+   <bean id="myTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="mySessionFactory"/>
+    </bean>
+
+    <bean id="transactionAttributes" class="org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource">
+        <property name="properties">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+                <prop key="add*">PROPAGATION_REQUIRES_NEW</prop>
+                <prop key="register*">PROPAGATION_REQUIRED</prop>
+                <prop key="create*">PROPAGATION_REQUIRED</prop>
+                <prop key="edit*">PROPAGATION_REQUIRED</prop>
+                <prop key="mark*">PROPAGATION_REQUIRED</prop>
+                <prop key="assign*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="autoProxyCreator" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="proxyTargetClass" value="true"/>
+        <property name="beanNames">
+            <list>
+                <value>taskDAO</value>
+                <!-- include the bean names later.
+                <value>userHelper</value>
+                <value>loginManager</value>
+                <value>user.general.accountManager</value>
+                -->
+            </list>
+        </property>
+
+        <property name="interceptorNames">
+            <list>
+                <idref bean="transactionInterceptor"/>
+            </list>
+        </property>
+
+    </bean>
+
+
+    <bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+        <property name="transactionManager" ref="myTransactionManager" />
+        <property name="transactionAttributeSource" ref="transactionAttributes" />
+    </bean>
+
+</beans>
