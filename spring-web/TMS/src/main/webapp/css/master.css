@@ -51,7 +51,7 @@ body {
 }
 
 
-#leftcol {
+#menu {
 	float: left;
 	width: 18%;
 	position: relative;
@@ -181,3 +181,64 @@ h1, h2, h3, h4, p, ul, ol, li, form, img, fieldset {
     font-size: 1.3em;
     padding-left: 2px;
 }
+
+#menu a:link {
+    color: #000000;
+    text-decoration: none;
+}
+
+#menu a:visited, #menu a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.task-section h2 {
+    border-bottom: 1px solid #DCE1E2;
+    color: #333333;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+	text-align: center;
+}
+
+.task-section fieldset {
+    border: 0 none;
+    margin-left: 150px;
+}
+
+.task-section label {
+	top: 8px;
+	position: absolute;
+	margin-left: 20px;
+}
+
+.task-section input, .task-section textarea {
+	width: 185px;
+}
+
+.task-section text {
+	
+}
+
+.task-section .row {
+    position: relative;
+}
+
+.task-section p.tip {
+    clear: both;
+    font-size: 9px;
+    margin: 0 0 5px;
+    padding: 0;
+}
+
+.task-section em {
+   color: #FF0024;
+    float: left;
+    height: 14px;
+    left: -8px;
+    overflow: hidden;
+    position: absolute;
+    width: 14px;
+}
+
+

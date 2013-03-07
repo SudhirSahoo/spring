@@ -1,5 +1,8 @@
 package com.skumar.spring.web.controller;
 
+import java.util.Collection;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,7 +12,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.stereotype.Controller;
@@ -63,9 +68,15 @@ public class AuthenitcationController {
 		try {
 			Authentication auth = authenticationManager.authenticate(token);
 			SecurityContextHolder.getContext().setAuthentication(auth);
+			request.setAttribute("uid", "AAAAAAAA");
 			repository.saveContext(SecurityContextHolder.getContext(), request, response);
 			rememberMeServices.loginSuccess(request, response, auth);
-			System.out.println("SUCCESS...");
+			User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			Collection<GrantedAuthority> list = auth.getAuthorities();
+			for(GrantedAuthority ga:list) {
+				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>> " + ga.getAuthority());
+			}
+			System.out.println("SUCCESS..." + auth.getName() + "      Role: " );
 			return "{\"status\": true}";
 		} catch (BadCredentialsException ex) {
 			System.out.println(ex.getMessage());

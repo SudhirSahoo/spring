@@ -18,11 +18,16 @@
 	</definition>
 	
 	
-	<!-- Concrete page. To use this page, your controller must return the name "pet-tiles" -->
+	<!-- Concrete page. To use this page, your controller must return the name "indexPage-tiles" -->
 	<definition name="indexPage-tiles" extends="main-template">
 		<put-attribute name="title" value="Welcome"/>
 		<put-attribute name="body-content" value="/pages/index.jsp" />
 	</definition>
 	
+	<!-- Concrete page. To use this page, your controller must return the name "createTask-indexPage-tiles" -->
+	<definition name="createTask-tiles" extends="main-template">
+		<put-attribute name="title" value="Welcome"/>
+		<put-attribute name="body-content" value="/pages/createTask.jsp" />
+	</definition>
 
 </tiles-definitions>

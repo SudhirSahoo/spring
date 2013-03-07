@@ -23,7 +23,7 @@
 			</div>
 			<div id="content-wrapper">
 				<div id="leftcol-wrapper">
-					<div id="leftcol"><tiles:insertAttribute name="menu-content"/></div>
+					<div id="menu"><tiles:insertAttribute name="menu-content"/></div>
 					<div id="content">
 						<tiles:insertAttribute name="body-content"/>
 					</div>

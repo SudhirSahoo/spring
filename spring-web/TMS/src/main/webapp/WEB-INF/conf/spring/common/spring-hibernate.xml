@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+<!--
+    <util:map id="hibernate.oracle.properties">
+        <entry key="hibernate.show_sql" value="false" />
+        <entry key="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+        <entry key="hibernate.transaction.factory_class" value="org.hibernate.transaction.JDBCTransactionFactory" />
+        <entry key="hibernate.max_fetch_depth" value="1" />
+        <entry key="hibernate.cache.region.factory_class" value="net.sf.ehcache.hibernate.SingletonEhCacheRegionFactory" />
+        <entry key="hibernate.cache.use_query_cache" value="true" />
+        <entry key="hibernate.cache.use_second_level_cache" value="true" />
+        <entry key="hibernate.jdbc.batch.size" value="1000" />
+    </util:map>
+ -->
+    <util:map id="hibernate.mysql.properties">
+        <entry key="hibernate.show_sql" value="false" />
+        <entry key="hibernate.hbm2ddl.auto" value="create" />
+        <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+    </util:map>
+
+<!--
+
+    <bean id="syncFailSafeInterceptor" class="com.amg.condenet.commons.user.dao.SyncFailSafeInterceptor"/>
+    <bean id="user.sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="user.dataSource"/>
+        <property name="hibernateProperties" ref="hibernate.oracle.properties"/>
+        <property name="mappingResources">
+            <list>
+                <value>com/amg/condenet/commons/user/domain/User.hbm3.xml</value>
+            </list>
+        </property>
+        <property name="entityInterceptor">
+            <ref bean="syncFailSafeInterceptor"/>
+        </property>
+    </bean>
+-->
+    <bean id="tms.sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties">
+	       	<props>
+	         	<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+	         	<prop key="hibernate.show_sql">true</prop>
+	       	</props>
+     	</property>
+        <property name="annotatedClasses">
+            <list>
+
+                
+
+            </list>
+        </property>
+     </bean>
+
+      <!-- Added to include Ehcache -->
+    <!-- 
+    <bean id="ehcacheCacheManager" class="net.sf.ehcache.CacheManager"
+        factory-method="create">
+        <constructor-arg index="0" type="java.net.URL"
+            value="classpath:${cache.config.file}" />
+    </bean>
+
+    <bean id="ehCacheProvider"
+        class="com.amg.condenet.commons.cache.ehcache.EhCacheProvider">
+        <property name="cacheManager" ref="ehcacheCacheManager" />
+        <property name="enableMbeanStats"
+            value="${cache.jmx.enableMbeanStats}" />
+    </bean>
+
+    <bean id="dummyCacheProvider"
+        class="com.amg.condenet.commons.cache.dummy.DummyCacheProvider" />
+    <bean id="cacheManager"
+        class="com.amg.condenet.commons.cache.CondenetCacheManager">
+        <property name="defaultCacheProvider" ref="ehCacheProvider" />
+        <property name="useCache" value="${cacheManager.useCache}" />
+        <property name="cacheProviders">
+            <map>
+                <entry key="dummy" value-ref="dummyCacheProvider" />
+            </map>
+        </property>
+    </bean>
+     -->
+</beans>

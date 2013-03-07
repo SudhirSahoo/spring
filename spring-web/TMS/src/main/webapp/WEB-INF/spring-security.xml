@@ -6,7 +6,6 @@
 	http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
 
-
 	<http>
 		<form-login />
 		<logout />
@@ -18,15 +17,22 @@
 		<intercept-url pattern="../images/**" filters="none" />
 		<intercept-url pattern="/images/**" filters="none" />
 		<intercept-url pattern="/indexPage/landing" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<intercept-url pattern="/authenticate/performLogin" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/authenticate/performLogin"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
 	</http>
+
 
 	<authentication-manager alias="authenticationManager">
 		<authentication-provider>
-			<user-service>
-				<user name="frank" password="12345" authorities="ROLE_USER" />
-			</user-service>
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="
+                              select username, password, enabled 
+                              from users where username=?"
+				authorities-by-username-query="
+                              select u.username, ur.authority from users u, user_roles ur 
+                              where u.user_id = ur.user_id and u.username=?" />
 		</authentication-provider>
+		
 	</authentication-manager>
 
 </beans:beans>
