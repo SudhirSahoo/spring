@@ -8,6 +8,7 @@ import {AppRoutingModule } from './app-routing.module';
 import {DashboardService} from './dashboard/dashboard.service';
 
 import {AppComponent} from './app.component';
+import {HomeComponent} from './home/home.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 
 
@@ -24,6 +25,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
     ],
     declarations: [
         AppComponent,
+        HomeComponent,
         DashboardComponent
     ],
     bootstrap: [AppComponent]

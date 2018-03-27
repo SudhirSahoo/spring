@@ -27,7 +27,11 @@ export class DashboardComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // initialize services and data
+        console.log("Init");
+        // // initialize services and data
+
+        // You must use the full url here "http://localhost:8080/api/dashboard"
+        // cause spring app runs on 8080 not 4200.
         this.http
             .get('api/dashboard')
             .toPromise()

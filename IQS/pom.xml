@@ -88,7 +88,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <!-- maven plugin to zip distribution files into single archive -->
-            <plugin>
+            <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
@@ -104,7 +104,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
             <!-- plugin to build angular files when the maven run goal is triggered -->
             <!--<plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
